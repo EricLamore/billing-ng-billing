@@ -1,0 +1,34 @@
+{
+  "billingNgMongoApp": {
+    "settingsInvoice": {
+      "home": {
+        "title": "Settings Invoices",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Settings Invoice",
+        "createOrEditLabel": "Create or edit a Settings Invoice",
+        "notFound": "No Settings Invoices found"
+      },
+      "created": "A new Settings Invoice is created with identifier {{ param }}",
+      "updated": "A Settings Invoice is updated with identifier {{ param }}",
+      "deleted": "A Settings Invoice is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Settings Invoice {{ id }}?"
+      },
+      "detail": {
+        "title": "Settings Invoice"
+      },
+      "id": "ID",
+      "global": "Global",
+      "subscription": "Subscription",
+      "taxPerCent": "Tax Per Cent",
+      "detailSkipped": "Detail Skipped",
+      "manualBillingOnly": "Manual Billing Only",
+      "billingActive": "Billing Active",
+      "perOrganization": "Per Organization",
+      "fullyAutomatic": "Fully Automatic",
+      "period": "Period",
+      "locale": "Locale",
+      "paymentTerms": "Payment Terms"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="customer">
+      <h2 data-cy="customerDetailsHeading"><span jhiTranslate="billingNgMongoApp.customer.detail.title">Customer</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ customer.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.name">Name</span></dt>
+        <dd>
+          <span>{{ customer.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ customer.lastUpdate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.description">Description</span></dt>
+        <dd>
+          <span>{{ customer.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.taxNo">Tax No</span></dt>
+        <dd>
+          <span>{{ customer.taxNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.thirdPartyAccountingCode">Third Party Accounting Code</span></dt>
+        <dd>
+          <span>{{ customer.thirdPartyAccountingCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.siret">Siret</span></dt>
+        <dd>
+          <span>{{ customer.siret }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.ownerId">Owner Id</span></dt>
+        <dd>
+          <span>{{ customer.ownerId }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.isParticular">Is Particular</span></dt>
+        <dd>
+          <span>{{ customer.isParticular }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.personReferers">Person Referers</span></dt>
+        <dd>
+          <span>{{ customer.personReferers }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.meansPayments">Means Payments</span></dt>
+        <dd>
+          <span>{{ customer.meansPayments }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.subscriptions">Subscriptions</span></dt>
+        <dd>
+          <span>{{ customer.subscriptions }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.usages">Usages</span></dt>
+        <dd>
+          <span>{{ customer.usages }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.settingsInvoice">Settings Invoice</span></dt>
+        <dd>
+          <span>{{ customer.settingsInvoice }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.partner">Partner</span></dt>
+        <dd>
+          <span>{{ customer.partner }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.partnerId">Partner Id</span></dt>
+        <dd>
+          <span>{{ customer.partnerId }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.customerId">Customer Id</span></dt>
+        <dd>
+          <span>{{ customer.customerId }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.customer.customerName">Customer Name</span></dt>
+        <dd>
+          <span>{{ customer.customerName }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/customer-billing', customer.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="subscriptionTmp">
+      <h2 data-cy="subscriptionTmpDetailsHeading">
+        <span jhiTranslate="billingNgMongoApp.subscriptionTmp.detail.title">Subscription Tmp</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.name">Name</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.lastUpdate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.description">Description</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.commercialName">Commercial Name</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.commercialName }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.ratePlans">Rate Plans</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.ratePlans }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.subscriptionFeatures">Subscription Features</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.subscriptionFeatures }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.version">Version</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.version }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.usages">Usages</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.usages }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.freeMonths">Free Months</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.freeMonths }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.subscriptionTmp.invoiceItemDateds">Invoice Item Dateds</span></dt>
+        <dd>
+          <span>{{ subscriptionTmp.invoiceItemDateds }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/subscription-tmp-billing', subscriptionTmp.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "billingNgMongoApp": {
+    "ratePlanCharge": {
+      "home": {
+        "title": "Rate Plan Charges",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rate Plan Charge",
+        "createOrEditLabel": "Create or edit a Rate Plan Charge",
+        "notFound": "No Rate Plan Charges found"
+      },
+      "created": "A new Rate Plan Charge is created with identifier {{ param }}",
+      "updated": "A Rate Plan Charge is updated with identifier {{ param }}",
+      "deleted": "A Rate Plan Charge is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rate Plan Charge {{ id }}?"
+      },
+      "detail": {
+        "title": "Rate Plan Charge"
+      },
+      "id": "ID",
+      "step": "Step",
+      "unitPrice": "Unit Price",
+      "discount": "Discount"
+    }
+  }
+}

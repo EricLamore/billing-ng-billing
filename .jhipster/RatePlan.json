@@ -1,0 +1,105 @@
+{
+  "name": "RatePlan",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastUpdate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "commercialName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "base",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "product",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productRatePlanCharge",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "features",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fixedPrice",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "standardModel",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "unitsIncluded",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "unitsIncludedPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "unitsIncludedDuration",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ratePlanId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "discountUnitPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "discountBase",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "prorata",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "activationDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "ratePlanCharges",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subscriptionFeatures",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "rate_plan",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150712"
+}

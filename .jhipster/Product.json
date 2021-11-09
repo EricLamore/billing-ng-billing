@@ -1,0 +1,50 @@
+{
+  "name": "Product",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastUpdate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "certificateTypes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "commercialName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productType",
+      "fieldType": "TypeProduct",
+      "fieldValues": "SIGNATURE (simple),SERVER_STAMP (server),TIMESTAMPING (timestamp),TRANSACTIONS (transactions),GENERIC (generic),CPM,PRESTA,OED_SETUP,OED_RUN,FORFAIT"
+    },
+    {
+      "fieldName": "settings",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "matrix",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "product",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150718"
+}

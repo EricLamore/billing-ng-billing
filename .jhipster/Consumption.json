@@ -1,0 +1,54 @@
+{
+  "name": "Consumption",
+  "fields": [
+    {
+      "fieldName": "organisationId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "organizationName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ratePlanId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TypeProduct",
+      "fieldValues": "SIGNATURE (simple),SERVER_STAMP (server),TIMESTAMPING (timestamp),TRANSACTIONS (transactions),GENERIC (generic),CPM,PRESTA,OED_SETUP,OED_RUN,FORFAIT"
+    },
+    {
+      "fieldName": "month",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "details",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nbUnits",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "consumption",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150721"
+}

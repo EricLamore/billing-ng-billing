@@ -1,0 +1,127 @@
+{
+  "name": "Invoice",
+  "fields": [
+    {
+      "fieldName": "humanId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "InvoiceType",
+      "fieldValues": "INVOICE,INVOICE_ONE_SHOT,REFUND"
+    },
+    {
+      "fieldName": "customerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "month",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "emissionDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "items",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vat",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "dueDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateToSend",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "sendDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dunningSendDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "creditNoteSendDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "DRAFT,CREATED,VALIDATED,INVALIDATED,SENT,PAID,UNPAID,REFUNDED"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pvalidationDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "validatorId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "payment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentsHistoric",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentMethod",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "refund",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "purchaseOrder",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "message",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "additionalItems",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalPriceGross",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "refundAmount",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "invoice",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150722"
+}

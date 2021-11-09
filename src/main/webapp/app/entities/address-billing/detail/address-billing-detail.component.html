@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="address">
+      <h2 data-cy="addressDetailsHeading"><span jhiTranslate="billingNgMongoApp.address.detail.title">Address</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ address.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.address.recipient">Recipient</span></dt>
+        <dd>
+          <span>{{ address.recipient }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.address.postOfficeBox">Post Office Box</span></dt>
+        <dd>
+          <span>{{ address.postOfficeBox }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.address.complement">Complement</span></dt>
+        <dd>
+          <span>{{ address.complement }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.address.street">Street</span></dt>
+        <dd>
+          <span>{{ address.street }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.address.postcode">Postcode</span></dt>
+        <dd>
+          <span>{{ address.postcode }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.address.city">City</span></dt>
+        <dd>
+          <span>{{ address.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.address.country">Country</span></dt>
+        <dd>
+          <span>{{ address.country }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/address-billing', address.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

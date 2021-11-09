@@ -1,0 +1,50 @@
+{
+  "billingNgMongoApp": {
+    "invoice": {
+      "home": {
+        "title": "Invoices",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Invoice",
+        "createOrEditLabel": "Create or edit a Invoice",
+        "notFound": "No Invoices found"
+      },
+      "created": "A new Invoice is created with identifier {{ param }}",
+      "updated": "A Invoice is updated with identifier {{ param }}",
+      "deleted": "A Invoice is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Invoice {{ id }}?"
+      },
+      "detail": {
+        "title": "Invoice"
+      },
+      "id": "ID",
+      "humanId": "Human Id",
+      "type": "Type",
+      "customerId": "Customer Id",
+      "customerName": "Customer Name",
+      "month": "Month",
+      "year": "Year",
+      "emissionDate": "Emission Date",
+      "items": "Items",
+      "vat": "Vat",
+      "dueDate": "Due Date",
+      "dateToSend": "Date To Send",
+      "sendDate": "Send Date",
+      "dunningSendDate": "Dunning Send Date",
+      "creditNoteSendDate": "Credit Note Send Date",
+      "status": "Status",
+      "comments": "Comments",
+      "pvalidationDate": "Pvalidation Date",
+      "validatorId": "Validator Id",
+      "payment": "Payment",
+      "paymentsHistoric": "Payments Historic",
+      "paymentMethod": "Payment Method",
+      "refund": "Refund",
+      "purchaseOrder": "Purchase Order",
+      "message": "Message",
+      "additionalItems": "Additional Items",
+      "totalPriceGross": "Total Price Gross",
+      "refundAmount": "Refund Amount"
+    }
+  }
+}

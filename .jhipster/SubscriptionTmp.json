@@ -1,0 +1,57 @@
+{
+  "name": "SubscriptionTmp",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastUpdate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "commercialName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ratePlans",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subscriptionFeatures",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "usages",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeMonths",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "invoiceItemDateds",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "subscription_tmp",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150723"
+}

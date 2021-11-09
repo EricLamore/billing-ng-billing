@@ -1,0 +1,123 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-invoice-item-billing-heading"
+        data-cy="InvoiceItemCreateUpdateHeading"
+        jhiTranslate="billingNgMongoApp.invoiceItem.home.createOrEditLabel"
+      >
+        Create or edit a Invoice Item
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.itemType" for="field_itemType">Item Type</label>
+          <select class="form-control" name="itemType" formControlName="itemType" id="field_itemType" data-cy="itemType">
+            <option [ngValue]="null">{{ 'billingNgMongoApp.ItemType.null' | translate }}</option>
+            <option *ngFor="let itemType of itemTypeValues" [value]="itemType">
+              {{ 'billingNgMongoApp.ItemType.' + itemType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.minStep" for="field_minStep">Min Step</label>
+          <input type="number" class="form-control" name="minStep" id="field_minStep" data-cy="minStep" formControlName="minStep" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.maxStep" for="field_maxStep">Max Step</label>
+          <input type="number" class="form-control" name="maxStep" id="field_maxStep" data-cy="maxStep" formControlName="maxStep" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.quantity" for="field_quantity">Quantity</label>
+          <input type="number" class="form-control" name="quantity" id="field_quantity" data-cy="quantity" formControlName="quantity" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.unitPrice" for="field_unitPrice">Unit Price</label>
+          <input type="number" class="form-control" name="unitPrice" id="field_unitPrice" data-cy="unitPrice" formControlName="unitPrice" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.discount" for="field_discount">Discount</label>
+          <input type="number" class="form-control" name="discount" id="field_discount" data-cy="discount" formControlName="discount" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.price" for="field_price">Price</label>
+          <input type="number" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.product" for="field_product">Product</label>
+          <input type="text" class="form-control" name="product" id="field_product" data-cy="product" formControlName="product" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.globalQuantity" for="field_globalQuantity"
+            >Global Quantity</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="globalQuantity"
+            id="field_globalQuantity"
+            data-cy="globalQuantity"
+            formControlName="globalQuantity"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoiceItem.untilDate" for="field_untilDate">Until Date</label>
+          <div class="input-group">
+            <input
+              id="field_untilDate"
+              data-cy="untilDate"
+              type="text"
+              class="form-control"
+              name="untilDate"
+              ngbDatepicker
+              #untilDateDp="ngbDatepicker"
+              formControlName="untilDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="untilDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

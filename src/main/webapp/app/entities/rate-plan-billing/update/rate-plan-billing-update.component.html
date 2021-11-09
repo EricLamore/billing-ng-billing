@@ -1,0 +1,315 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-rate-plan-billing-heading"
+        data-cy="RatePlanCreateUpdateHeading"
+        jhiTranslate="billingNgMongoApp.ratePlan.home.createOrEditLabel"
+      >
+        Create or edit a Rate Plan
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.lastUpdate" for="field_lastUpdate">Last Update</label>
+          <div class="input-group">
+            <input
+              id="field_lastUpdate"
+              data-cy="lastUpdate"
+              type="text"
+              class="form-control"
+              name="lastUpdate"
+              ngbDatepicker
+              #lastUpdateDp="ngbDatepicker"
+              formControlName="lastUpdate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="lastUpdateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.commercialName" for="field_commercialName"
+            >Commercial Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commercialName"
+            id="field_commercialName"
+            data-cy="commercialName"
+            formControlName="commercialName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.base" for="field_base">Base</label>
+          <input type="number" class="form-control" name="base" id="field_base" data-cy="base" formControlName="base" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.product" for="field_product">Product</label>
+          <input type="text" class="form-control" name="product" id="field_product" data-cy="product" formControlName="product" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="billingNgMongoApp.ratePlan.productRatePlanCharge"
+            for="field_productRatePlanCharge"
+            >Product Rate Plan Charge</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="productRatePlanCharge"
+            id="field_productRatePlanCharge"
+            data-cy="productRatePlanCharge"
+            formControlName="productRatePlanCharge"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.features" for="field_features">Features</label>
+          <input type="text" class="form-control" name="features" id="field_features" data-cy="features" formControlName="features" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.version" for="field_version">Version</label>
+          <input type="text" class="form-control" name="version" id="field_version" data-cy="version" formControlName="version" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.fixedPrice" for="field_fixedPrice">Fixed Price</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="fixedPrice"
+            id="field_fixedPrice"
+            data-cy="fixedPrice"
+            formControlName="fixedPrice"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.standardModel" for="field_standardModel"
+            >Standard Model</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="standardModel"
+            id="field_standardModel"
+            data-cy="standardModel"
+            formControlName="standardModel"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.unitsIncluded" for="field_unitsIncluded"
+            >Units Included</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="unitsIncluded"
+            id="field_unitsIncluded"
+            data-cy="unitsIncluded"
+            formControlName="unitsIncluded"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.unitsIncludedPrice" for="field_unitsIncludedPrice"
+            >Units Included Price</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="unitsIncludedPrice"
+            id="field_unitsIncludedPrice"
+            data-cy="unitsIncludedPrice"
+            formControlName="unitsIncludedPrice"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="billingNgMongoApp.ratePlan.unitsIncludedDuration"
+            for="field_unitsIncludedDuration"
+            >Units Included Duration</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="unitsIncludedDuration"
+            id="field_unitsIncludedDuration"
+            data-cy="unitsIncludedDuration"
+            formControlName="unitsIncludedDuration"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.ratePlanId" for="field_ratePlanId">Rate Plan Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="ratePlanId"
+            id="field_ratePlanId"
+            data-cy="ratePlanId"
+            formControlName="ratePlanId"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.discountUnitPrice" for="field_discountUnitPrice"
+            >Discount Unit Price</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="discountUnitPrice"
+            id="field_discountUnitPrice"
+            data-cy="discountUnitPrice"
+            formControlName="discountUnitPrice"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.discountBase" for="field_discountBase"
+            >Discount Base</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="discountBase"
+            id="field_discountBase"
+            data-cy="discountBase"
+            formControlName="discountBase"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.prorata" for="field_prorata">Prorata</label>
+          <input type="number" class="form-control" name="prorata" id="field_prorata" data-cy="prorata" formControlName="prorata" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.activationDate" for="field_activationDate"
+            >Activation Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_activationDate"
+              data-cy="activationDate"
+              type="text"
+              class="form-control"
+              name="activationDate"
+              ngbDatepicker
+              #activationDateDp="ngbDatepicker"
+              formControlName="activationDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="activationDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.endDate" for="field_endDate">End Date</label>
+          <div class="input-group">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="text"
+              class="form-control"
+              name="endDate"
+              ngbDatepicker
+              #endDateDp="ngbDatepicker"
+              formControlName="endDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.ratePlanCharges" for="field_ratePlanCharges"
+            >Rate Plan Charges</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="ratePlanCharges"
+            id="field_ratePlanCharges"
+            data-cy="ratePlanCharges"
+            formControlName="ratePlanCharges"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.ratePlan.subscriptionFeatures" for="field_subscriptionFeatures"
+            >Subscription Features</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="subscriptionFeatures"
+            id="field_subscriptionFeatures"
+            data-cy="subscriptionFeatures"
+            formControlName="subscriptionFeatures"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

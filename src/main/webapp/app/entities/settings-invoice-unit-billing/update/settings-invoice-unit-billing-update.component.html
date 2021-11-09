@@ -1,0 +1,119 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-settings-invoice-unit-billing-heading"
+        data-cy="SettingsInvoiceUnitCreateUpdateHeading"
+        jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.home.createOrEditLabel"
+      >
+        Create or edit a Settings Invoice Unit
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.seller" for="field_seller">Seller</label>
+          <input type="text" class="form-control" name="seller" id="field_seller" data-cy="seller" formControlName="seller" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.personBuyerId" for="field_personBuyerId"
+            >Person Buyer Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="personBuyerId"
+            id="field_personBuyerId"
+            data-cy="personBuyerId"
+            formControlName="personBuyerId"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.personRefererCopys"
+            for="field_personRefererCopys"
+            >Person Referer Copys</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="personRefererCopys"
+            id="field_personRefererCopys"
+            data-cy="personRefererCopys"
+            formControlName="personRefererCopys"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.subscriptionId" for="field_subscriptionId"
+            >Subscription Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="subscriptionId"
+            id="field_subscriptionId"
+            data-cy="subscriptionId"
+            formControlName="subscriptionId"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.useBillingAddress"
+            for="field_useBillingAddress"
+            >Use Billing Address</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="useBillingAddress"
+            id="field_useBillingAddress"
+            data-cy="useBillingAddress"
+            formControlName="useBillingAddress"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.paymentMethod" for="field_paymentMethod"
+            >Payment Method</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paymentMethod"
+            id="field_paymentMethod"
+            data-cy="paymentMethod"
+            formControlName="paymentMethod"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ratePlan">
+      <h2 data-cy="ratePlanDetailsHeading"><span jhiTranslate="billingNgMongoApp.ratePlan.detail.title">Rate Plan</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ratePlan.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.name">Name</span></dt>
+        <dd>
+          <span>{{ ratePlan.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ ratePlan.lastUpdate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.description">Description</span></dt>
+        <dd>
+          <span>{{ ratePlan.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.commercialName">Commercial Name</span></dt>
+        <dd>
+          <span>{{ ratePlan.commercialName }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.base">Base</span></dt>
+        <dd>
+          <span>{{ ratePlan.base }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.product">Product</span></dt>
+        <dd>
+          <span>{{ ratePlan.product }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.productRatePlanCharge">Product Rate Plan Charge</span></dt>
+        <dd>
+          <span>{{ ratePlan.productRatePlanCharge }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.features">Features</span></dt>
+        <dd>
+          <span>{{ ratePlan.features }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.version">Version</span></dt>
+        <dd>
+          <span>{{ ratePlan.version }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.fixedPrice">Fixed Price</span></dt>
+        <dd>
+          <span>{{ ratePlan.fixedPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.standardModel">Standard Model</span></dt>
+        <dd>
+          <span>{{ ratePlan.standardModel }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.unitsIncluded">Units Included</span></dt>
+        <dd>
+          <span>{{ ratePlan.unitsIncluded }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.unitsIncludedPrice">Units Included Price</span></dt>
+        <dd>
+          <span>{{ ratePlan.unitsIncludedPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.unitsIncludedDuration">Units Included Duration</span></dt>
+        <dd>
+          <span>{{ ratePlan.unitsIncludedDuration }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.ratePlanId">Rate Plan Id</span></dt>
+        <dd>
+          <span>{{ ratePlan.ratePlanId }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.discountUnitPrice">Discount Unit Price</span></dt>
+        <dd>
+          <span>{{ ratePlan.discountUnitPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.discountBase">Discount Base</span></dt>
+        <dd>
+          <span>{{ ratePlan.discountBase }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.prorata">Prorata</span></dt>
+        <dd>
+          <span>{{ ratePlan.prorata }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.activationDate">Activation Date</span></dt>
+        <dd>
+          <span>{{ ratePlan.activationDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ ratePlan.endDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.ratePlanCharges">Rate Plan Charges</span></dt>
+        <dd>
+          <span>{{ ratePlan.ratePlanCharges }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlan.subscriptionFeatures">Subscription Features</span></dt>
+        <dd>
+          <span>{{ ratePlan.subscriptionFeatures }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/rate-plan-billing', ratePlan.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

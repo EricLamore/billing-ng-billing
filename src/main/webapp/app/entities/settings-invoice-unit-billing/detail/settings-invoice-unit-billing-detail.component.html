@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="settingsInvoiceUnit">
+      <h2 data-cy="settingsInvoiceUnitDetailsHeading">
+        <span jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.detail.title">Settings Invoice Unit</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ settingsInvoiceUnit.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.seller">Seller</span></dt>
+        <dd>
+          <span>{{ settingsInvoiceUnit.seller }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.personBuyerId">Person Buyer Id</span></dt>
+        <dd>
+          <span>{{ settingsInvoiceUnit.personBuyerId }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.personRefererCopys">Person Referer Copys</span></dt>
+        <dd>
+          <span>{{ settingsInvoiceUnit.personRefererCopys }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.subscriptionId">Subscription Id</span></dt>
+        <dd>
+          <span>{{ settingsInvoiceUnit.subscriptionId }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.useBillingAddress">Use Billing Address</span></dt>
+        <dd>
+          <span>{{ settingsInvoiceUnit.useBillingAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.settingsInvoiceUnit.paymentMethod">Payment Method</span></dt>
+        <dd>
+          <span>{{ settingsInvoiceUnit.paymentMethod }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/settings-invoice-unit-billing', settingsInvoiceUnit.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

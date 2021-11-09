@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="organization">
+      <h2 data-cy="organizationDetailsHeading"><span jhiTranslate="billingNgMongoApp.organization.detail.title">Organization</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="billingNgMongoApp.organization.id">Id</span></dt>
+        <dd>
+          <span>{{ organization.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.addr">Addr</span></dt>
+        <dd>
+          <span>{{ organization.addr }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.city">City</span></dt>
+        <dd>
+          <span>{{ organization.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.country">Country</span></dt>
+        <dd>
+          <span>{{ organization.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.name">Name</span></dt>
+        <dd>
+          <span>{{ organization.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.registerDate">Register Date</span></dt>
+        <dd>
+          <span>{{ organization.registerDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.status">Status</span></dt>
+        <dd>
+          <span>{{ organization.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.zipCode">Zip Code</span></dt>
+        <dd>
+          <span>{{ organization.zipCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.individual">Individual</span></dt>
+        <dd>
+          <span>{{ organization.individual }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.vatNumber">Vat Number</span></dt>
+        <dd>
+          <span>{{ organization.vatNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.organization.ipRanges">Ip Ranges</span></dt>
+        <dd>
+          <span>{{ organization.ipRanges }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/organization-billing', organization.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

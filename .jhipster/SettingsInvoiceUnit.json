@@ -1,0 +1,41 @@
+{
+  "name": "SettingsInvoiceUnit",
+  "fields": [
+    {
+      "fieldName": "seller",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "personBuyerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "personRefererCopys",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subscriptionId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "useBillingAddress",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "paymentMethod",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "settings_invoice_unit",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150706"
+}
