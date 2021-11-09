@@ -1,0 +1,221 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-customer-billing-heading"
+        data-cy="CustomerCreateUpdateHeading"
+        jhiTranslate="billingNgMongoApp.customer.home.createOrEditLabel"
+      >
+        Create or edit a Customer
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.lastUpdate" for="field_lastUpdate">Last Update</label>
+          <div class="input-group">
+            <input
+              id="field_lastUpdate"
+              data-cy="lastUpdate"
+              type="text"
+              class="form-control"
+              name="lastUpdate"
+              ngbDatepicker
+              #lastUpdateDp="ngbDatepicker"
+              formControlName="lastUpdate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="lastUpdateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.taxNo" for="field_taxNo">Tax No</label>
+          <input type="text" class="form-control" name="taxNo" id="field_taxNo" data-cy="taxNo" formControlName="taxNo" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="billingNgMongoApp.customer.thirdPartyAccountingCode"
+            for="field_thirdPartyAccountingCode"
+            >Third Party Accounting Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="thirdPartyAccountingCode"
+            id="field_thirdPartyAccountingCode"
+            data-cy="thirdPartyAccountingCode"
+            formControlName="thirdPartyAccountingCode"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.siret" for="field_siret">Siret</label>
+          <input type="text" class="form-control" name="siret" id="field_siret" data-cy="siret" formControlName="siret" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.ownerId" for="field_ownerId">Owner Id</label>
+          <input type="text" class="form-control" name="ownerId" id="field_ownerId" data-cy="ownerId" formControlName="ownerId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.isParticular" for="field_isParticular"
+            >Is Particular</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isParticular"
+            id="field_isParticular"
+            data-cy="isParticular"
+            formControlName="isParticular"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.personReferers" for="field_personReferers"
+            >Person Referers</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="personReferers"
+            id="field_personReferers"
+            data-cy="personReferers"
+            formControlName="personReferers"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.meansPayments" for="field_meansPayments"
+            >Means Payments</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="meansPayments"
+            id="field_meansPayments"
+            data-cy="meansPayments"
+            formControlName="meansPayments"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.subscriptions" for="field_subscriptions"
+            >Subscriptions</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="subscriptions"
+            id="field_subscriptions"
+            data-cy="subscriptions"
+            formControlName="subscriptions"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.usages" for="field_usages">Usages</label>
+          <input type="text" class="form-control" name="usages" id="field_usages" data-cy="usages" formControlName="usages" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.settingsInvoice" for="field_settingsInvoice"
+            >Settings Invoice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="settingsInvoice"
+            id="field_settingsInvoice"
+            data-cy="settingsInvoice"
+            formControlName="settingsInvoice"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.partner" for="field_partner">Partner</label>
+          <input type="checkbox" class="form-check" name="partner" id="field_partner" data-cy="partner" formControlName="partner" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.partnerId" for="field_partnerId">Partner Id</label>
+          <input type="text" class="form-control" name="partnerId" id="field_partnerId" data-cy="partnerId" formControlName="partnerId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.customerId" for="field_customerId">Customer Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="customerId"
+            id="field_customerId"
+            data-cy="customerId"
+            formControlName="customerId"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.customer.customerName" for="field_customerName"
+            >Customer Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerName"
+            id="field_customerName"
+            data-cy="customerName"
+            formControlName="customerName"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

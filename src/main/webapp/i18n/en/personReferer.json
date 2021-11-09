@@ -1,0 +1,31 @@
+{
+  "billingNgMongoApp": {
+    "personReferer": {
+      "home": {
+        "title": "Person Referers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Person Referer",
+        "createOrEditLabel": "Create or edit a Person Referer",
+        "notFound": "No Person Referers found"
+      },
+      "created": "A new Person Referer is created with identifier {{ param }}",
+      "updated": "A Person Referer is updated with identifier {{ param }}",
+      "deleted": "A Person Referer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Person Referer {{ id }}?"
+      },
+      "detail": {
+        "title": "Person Referer"
+      },
+      "id": "ID",
+      "firstname": "Firstname",
+      "lastname": "Lastname",
+      "email": "Email",
+      "job": "Job",
+      "phoneNumber": "Phone Number",
+      "mobile": "Mobile",
+      "fax": "Fax",
+      "description": "Description"
+    }
+  }
+}

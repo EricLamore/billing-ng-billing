@@ -1,0 +1,29 @@
+{
+  "billingNgMongoApp": {
+    "settingsInvoiceUnit": {
+      "home": {
+        "title": "Settings Invoice Units",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Settings Invoice Unit",
+        "createOrEditLabel": "Create or edit a Settings Invoice Unit",
+        "notFound": "No Settings Invoice Units found"
+      },
+      "created": "A new Settings Invoice Unit is created with identifier {{ param }}",
+      "updated": "A Settings Invoice Unit is updated with identifier {{ param }}",
+      "deleted": "A Settings Invoice Unit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Settings Invoice Unit {{ id }}?"
+      },
+      "detail": {
+        "title": "Settings Invoice Unit"
+      },
+      "id": "ID",
+      "seller": "Seller",
+      "personBuyerId": "Person Buyer Id",
+      "personRefererCopys": "Person Referer Copys",
+      "subscriptionId": "Subscription Id",
+      "useBillingAddress": "Use Billing Address",
+      "paymentMethod": "Payment Method"
+    }
+  }
+}

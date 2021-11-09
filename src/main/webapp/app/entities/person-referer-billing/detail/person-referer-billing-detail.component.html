@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="personReferer">
+      <h2 data-cy="personRefererDetailsHeading"><span jhiTranslate="billingNgMongoApp.personReferer.detail.title">Person Referer</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ personReferer.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.personReferer.firstname">Firstname</span></dt>
+        <dd>
+          <span>{{ personReferer.firstname }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.personReferer.lastname">Lastname</span></dt>
+        <dd>
+          <span>{{ personReferer.lastname }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.personReferer.email">Email</span></dt>
+        <dd>
+          <span>{{ personReferer.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.personReferer.job">Job</span></dt>
+        <dd>
+          <span>{{ personReferer.job }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.personReferer.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ personReferer.phoneNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.personReferer.mobile">Mobile</span></dt>
+        <dd>
+          <span>{{ personReferer.mobile }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.personReferer.fax">Fax</span></dt>
+        <dd>
+          <span>{{ personReferer.fax }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.personReferer.description">Description</span></dt>
+        <dd>
+          <span>{{ personReferer.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/person-referer-billing', personReferer.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+<div>
+  <h2 id="page-heading" data-cy="InvoiceItemHeading">
+    <span jhiTranslate="billingNgMongoApp.invoiceItem.home.title">Invoice Items</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="billingNgMongoApp.invoiceItem.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-invoice-item-billing"
+        [routerLink]="['/invoice-item-billing/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="billingNgMongoApp.invoiceItem.home.createLabel"> Create a new Invoice Item </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="invoiceItems?.length === 0">
+    <span jhiTranslate="billingNgMongoApp.invoiceItem.home.notFound">No invoiceItems found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="invoiceItems && invoiceItems.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="name">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.name">Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="itemType">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.itemType">Item Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="minStep">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.minStep">Min Step</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="maxStep">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.maxStep">Max Step</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="quantity">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="unitPrice">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.unitPrice">Unit Price</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="discount">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.discount">Discount</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="price">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.price">Price</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="product">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.product">Product</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="globalQuantity">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.globalQuantity">Global Quantity</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="untilDate">
+            <span jhiTranslate="billingNgMongoApp.invoiceItem.untilDate">Until Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invoiceItem of invoiceItems; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/invoice-item-billing', invoiceItem.id, 'view']">{{ invoiceItem.id }}</a>
+          </td>
+          <td>{{ invoiceItem.name }}</td>
+          <td jhiTranslate="{{ 'billingNgMongoApp.ItemType.' + invoiceItem.itemType }}">{{ invoiceItem.itemType }}</td>
+          <td>{{ invoiceItem.minStep }}</td>
+          <td>{{ invoiceItem.maxStep }}</td>
+          <td>{{ invoiceItem.quantity }}</td>
+          <td>{{ invoiceItem.unitPrice }}</td>
+          <td>{{ invoiceItem.discount }}</td>
+          <td>{{ invoiceItem.price }}</td>
+          <td>{{ invoiceItem.product }}</td>
+          <td>{{ invoiceItem.globalQuantity }}</td>
+          <td>{{ invoiceItem.untilDate | formatMediumDate }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/invoice-item-billing', invoiceItem.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/invoice-item-billing', invoiceItem.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(invoiceItem)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="invoiceItems && invoiceItems.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

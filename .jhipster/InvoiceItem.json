@@ -1,0 +1,62 @@
+{
+  "name": "InvoiceItem",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "itemType",
+      "fieldType": "ItemType",
+      "fieldValues": "SUBSCRIPTION,STEP,FREE_UNITS,CUSTOM"
+    },
+    {
+      "fieldName": "minStep",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxStep",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "unitPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "discount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "product",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "globalQuantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "untilDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "invoice_item",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150710"
+}

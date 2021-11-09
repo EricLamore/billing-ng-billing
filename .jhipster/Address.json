@@ -1,0 +1,45 @@
+{
+  "name": "Address",
+  "fields": [
+    {
+      "fieldName": "recipient",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postOfficeBox",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "complement",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "street",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postcode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "address",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150709"
+}

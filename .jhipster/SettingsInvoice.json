@@ -1,0 +1,62 @@
+{
+  "name": "SettingsInvoice",
+  "fields": [
+    {
+      "fieldName": "global",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subscription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "taxPerCent",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "detailSkipped",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "manualBillingOnly",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "billingActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "perOrganization",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "fullyAutomatic",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "period",
+      "fieldType": "Period",
+      "fieldValues": "MONTHLY,QUARTERLY,ANNUAL"
+    },
+    {
+      "fieldName": "locale",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentTerms",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "settings_invoice",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150705"
+}

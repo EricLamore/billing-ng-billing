@@ -1,0 +1,25 @@
+{
+  "billingNgMongoApp": {
+    "productSetting": {
+      "home": {
+        "title": "Product Settings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product Setting",
+        "createOrEditLabel": "Create or edit a Product Setting",
+        "notFound": "No Product Settings found"
+      },
+      "created": "A new Product Setting is created with identifier {{ param }}",
+      "updated": "A Product Setting is updated with identifier {{ param }}",
+      "deleted": "A Product Setting is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Setting {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Setting"
+      },
+      "id": "ID",
+      "name": "Name",
+      "value": "Value"
+    }
+  }
+}

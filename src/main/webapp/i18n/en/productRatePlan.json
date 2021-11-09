@@ -1,0 +1,34 @@
+{
+  "billingNgMongoApp": {
+    "productRatePlan": {
+      "home": {
+        "title": "Product Rate Plans",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product Rate Plan",
+        "createOrEditLabel": "Create or edit a Product Rate Plan",
+        "notFound": "No Product Rate Plans found"
+      },
+      "created": "A new Product Rate Plan is created with identifier {{ param }}",
+      "updated": "A Product Rate Plan is updated with identifier {{ param }}",
+      "deleted": "A Product Rate Plan is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Rate Plan {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Rate Plan"
+      },
+      "id": "ID",
+      "commercialName": "Commercial Name",
+      "base": "Base",
+      "product": "Product",
+      "productRatePlanCharge": "Product Rate Plan Charge",
+      "features": "Features",
+      "version": "Version",
+      "fixedPrice": "Fixed Price",
+      "standardModel": "Standard Model",
+      "unitsIncluded": "Units Included",
+      "unitsIncludedPrice": "Units Included Price",
+      "unitsIncludedDuration": "Units Included Duration"
+    }
+  }
+}

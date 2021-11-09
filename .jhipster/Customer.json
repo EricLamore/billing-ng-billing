@@ -1,0 +1,85 @@
+{
+  "name": "Customer",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastUpdate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "taxNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "thirdPartyAccountingCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "siret",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ownerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isParticular",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "personReferers",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "meansPayments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subscriptions",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "usages",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "settingsInvoice",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "partner",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "partnerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "customer",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150704"
+}

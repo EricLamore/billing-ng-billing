@@ -1,0 +1,10 @@
+{
+  "billingNgMongoApp": {
+    "Period": {
+      "null": "",
+      "MONTHLY": "MONTHLY",
+      "QUARTERLY": "QUARTERLY",
+      "ANNUAL": "ANNUAL"
+    }
+  }
+}

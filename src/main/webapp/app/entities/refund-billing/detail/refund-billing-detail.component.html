@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="refund">
+      <h2 data-cy="refundDetailsHeading"><span jhiTranslate="billingNgMongoApp.refund.detail.title">Refund</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ refund.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.refund.reference">Reference</span></dt>
+        <dd>
+          <span>{{ refund.reference }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.refund.amount">Amount</span></dt>
+        <dd>
+          <span>{{ refund.amount }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/refund-billing', refund.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

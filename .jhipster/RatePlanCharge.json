@@ -1,0 +1,29 @@
+{
+  "name": "RatePlanCharge",
+  "fields": [
+    {
+      "fieldName": "step",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "unitPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "discount",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "rate_plan_charge",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150714"
+}

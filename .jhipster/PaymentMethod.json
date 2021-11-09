@@ -1,0 +1,29 @@
+{
+  "name": "PaymentMethod",
+  "fields": [
+    {
+      "fieldName": "typeOfMean",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "iban",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "payment_method",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "billing",
+  "changelogDate": "20211109150708"
+}

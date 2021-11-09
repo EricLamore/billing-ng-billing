@@ -1,0 +1,45 @@
+{
+  "billingNgMongoApp": {
+    "ratePlan": {
+      "home": {
+        "title": "Rate Plans",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rate Plan",
+        "createOrEditLabel": "Create or edit a Rate Plan",
+        "notFound": "No Rate Plans found"
+      },
+      "created": "A new Rate Plan is created with identifier {{ param }}",
+      "updated": "A Rate Plan is updated with identifier {{ param }}",
+      "deleted": "A Rate Plan is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rate Plan {{ id }}?"
+      },
+      "detail": {
+        "title": "Rate Plan"
+      },
+      "id": "ID",
+      "name": "Name",
+      "lastUpdate": "Last Update",
+      "description": "Description",
+      "commercialName": "Commercial Name",
+      "base": "Base",
+      "product": "Product",
+      "productRatePlanCharge": "Product Rate Plan Charge",
+      "features": "Features",
+      "version": "Version",
+      "fixedPrice": "Fixed Price",
+      "standardModel": "Standard Model",
+      "unitsIncluded": "Units Included",
+      "unitsIncludedPrice": "Units Included Price",
+      "unitsIncludedDuration": "Units Included Duration",
+      "ratePlanId": "Rate Plan Id",
+      "discountUnitPrice": "Discount Unit Price",
+      "discountBase": "Discount Base",
+      "prorata": "Prorata",
+      "activationDate": "Activation Date",
+      "endDate": "End Date",
+      "ratePlanCharges": "Rate Plan Charges",
+      "subscriptionFeatures": "Subscription Features"
+    }
+  }
+}

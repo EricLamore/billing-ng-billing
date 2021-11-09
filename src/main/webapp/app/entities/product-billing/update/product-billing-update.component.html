@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-product-billing-heading"
+        data-cy="ProductCreateUpdateHeading"
+        jhiTranslate="billingNgMongoApp.product.home.createOrEditLabel"
+      >
+        Create or edit a Product
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.product.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.product.lastUpdate" for="field_lastUpdate">Last Update</label>
+          <div class="input-group">
+            <input
+              id="field_lastUpdate"
+              data-cy="lastUpdate"
+              type="text"
+              class="form-control"
+              name="lastUpdate"
+              ngbDatepicker
+              #lastUpdateDp="ngbDatepicker"
+              formControlName="lastUpdate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="lastUpdateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.product.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.product.certificateTypes" for="field_certificateTypes"
+            >Certificate Types</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="certificateTypes"
+            id="field_certificateTypes"
+            data-cy="certificateTypes"
+            formControlName="certificateTypes"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.product.commercialName" for="field_commercialName"
+            >Commercial Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commercialName"
+            id="field_commercialName"
+            data-cy="commercialName"
+            formControlName="commercialName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.product.productType" for="field_productType"
+            >Product Type</label
+          >
+          <select class="form-control" name="productType" formControlName="productType" id="field_productType" data-cy="productType">
+            <option [ngValue]="null">{{ 'billingNgMongoApp.TypeProduct.null' | translate }}</option>
+            <option *ngFor="let typeProduct of typeProductValues" [value]="typeProduct">
+              {{ 'billingNgMongoApp.TypeProduct.' + typeProduct | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.product.settings" for="field_settings">Settings</label>
+          <input type="text" class="form-control" name="settings" id="field_settings" data-cy="settings" formControlName="settings" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.product.matrix" for="field_matrix">Matrix</label>
+          <input type="number" class="form-control" name="matrix" id="field_matrix" data-cy="matrix" formControlName="matrix" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

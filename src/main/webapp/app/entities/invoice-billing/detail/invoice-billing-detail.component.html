@@ -1,0 +1,136 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="invoice">
+      <h2 data-cy="invoiceDetailsHeading"><span jhiTranslate="billingNgMongoApp.invoice.detail.title">Invoice</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ invoice.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.humanId">Human Id</span></dt>
+        <dd>
+          <span>{{ invoice.humanId }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'billingNgMongoApp.InvoiceType.' + invoice.type }}">{{ invoice.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.customerId">Customer Id</span></dt>
+        <dd>
+          <span>{{ invoice.customerId }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.customerName">Customer Name</span></dt>
+        <dd>
+          <span>{{ invoice.customerName }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.month">Month</span></dt>
+        <dd>
+          <span>{{ invoice.month }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.year">Year</span></dt>
+        <dd>
+          <span>{{ invoice.year }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.emissionDate">Emission Date</span></dt>
+        <dd>
+          <span>{{ invoice.emissionDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.items">Items</span></dt>
+        <dd>
+          <span>{{ invoice.items }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.vat">Vat</span></dt>
+        <dd>
+          <span>{{ invoice.vat }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.dueDate">Due Date</span></dt>
+        <dd>
+          <span>{{ invoice.dueDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.dateToSend">Date To Send</span></dt>
+        <dd>
+          <span>{{ invoice.dateToSend | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.sendDate">Send Date</span></dt>
+        <dd>
+          <span>{{ invoice.sendDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.dunningSendDate">Dunning Send Date</span></dt>
+        <dd>
+          <span>{{ invoice.dunningSendDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.creditNoteSendDate">Credit Note Send Date</span></dt>
+        <dd>
+          <span>{{ invoice.creditNoteSendDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'billingNgMongoApp.Status.' + invoice.status }}">{{ invoice.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.comments">Comments</span></dt>
+        <dd>
+          <span>{{ invoice.comments }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.pvalidationDate">Pvalidation Date</span></dt>
+        <dd>
+          <span>{{ invoice.pvalidationDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.validatorId">Validator Id</span></dt>
+        <dd>
+          <span>{{ invoice.validatorId }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.payment">Payment</span></dt>
+        <dd>
+          <span>{{ invoice.payment }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.paymentsHistoric">Payments Historic</span></dt>
+        <dd>
+          <span>{{ invoice.paymentsHistoric }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.paymentMethod">Payment Method</span></dt>
+        <dd>
+          <span>{{ invoice.paymentMethod }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.refund">Refund</span></dt>
+        <dd>
+          <span>{{ invoice.refund }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.purchaseOrder">Purchase Order</span></dt>
+        <dd>
+          <span>{{ invoice.purchaseOrder }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.message">Message</span></dt>
+        <dd>
+          <span>{{ invoice.message }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.additionalItems">Additional Items</span></dt>
+        <dd>
+          <span>{{ invoice.additionalItems }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.totalPriceGross">Total Price Gross</span></dt>
+        <dd>
+          <span>{{ invoice.totalPriceGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.invoice.refundAmount">Refund Amount</span></dt>
+        <dd>
+          <span>{{ invoice.refundAmount }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/invoice-billing', invoice.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

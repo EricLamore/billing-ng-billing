@@ -1,0 +1,32 @@
+{
+  "billingNgMongoApp": {
+    "consumption": {
+      "home": {
+        "title": "Consumptions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Consumption",
+        "createOrEditLabel": "Create or edit a Consumption",
+        "notFound": "No Consumptions found"
+      },
+      "created": "A new Consumption is created with identifier {{ param }}",
+      "updated": "A Consumption is updated with identifier {{ param }}",
+      "deleted": "A Consumption is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Consumption {{ id }}?"
+      },
+      "detail": {
+        "title": "Consumption"
+      },
+      "id": "ID",
+      "organisationId": "Organisation Id",
+      "organizationName": "Organization Name",
+      "ratePlanId": "Rate Plan Id",
+      "name": "Name",
+      "type": "Type",
+      "month": "Month",
+      "year": "Year",
+      "details": "Details",
+      "nbUnits": "Nb Units"
+    }
+  }
+}

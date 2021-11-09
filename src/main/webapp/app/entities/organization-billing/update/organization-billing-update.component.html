@@ -1,0 +1,123 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-organization-billing-heading"
+        data-cy="OrganizationCreateUpdateHeading"
+        jhiTranslate="billingNgMongoApp.organization.home.createOrEditLabel"
+      >
+        Create or edit a Organization
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.id" for="field_id">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="editForm.get('id')!.value != null"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.addr" for="field_addr">Addr</label>
+          <input type="text" class="form-control" name="addr" id="field_addr" data-cy="addr" formControlName="addr" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.city" for="field_city">City</label>
+          <input type="text" class="form-control" name="city" id="field_city" data-cy="city" formControlName="city" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.country" for="field_country">Country</label>
+          <input type="text" class="form-control" name="country" id="field_country" data-cy="country" formControlName="country" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.registerDate" for="field_registerDate"
+            >Register Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_registerDate"
+              data-cy="registerDate"
+              type="text"
+              class="form-control"
+              name="registerDate"
+              ngbDatepicker
+              #registerDateDp="ngbDatepicker"
+              formControlName="registerDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="registerDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.status" for="field_status">Status</label>
+          <input type="number" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.zipCode" for="field_zipCode">Zip Code</label>
+          <input type="text" class="form-control" name="zipCode" id="field_zipCode" data-cy="zipCode" formControlName="zipCode" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.individual" for="field_individual"
+            >Individual</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="individual"
+            id="field_individual"
+            data-cy="individual"
+            formControlName="individual"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.vatNumber" for="field_vatNumber">Vat Number</label>
+          <input type="text" class="form-control" name="vatNumber" id="field_vatNumber" data-cy="vatNumber" formControlName="vatNumber" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.organization.ipRanges" for="field_ipRanges">Ip Ranges</label>
+          <input type="text" class="form-control" name="ipRanges" id="field_ipRanges" data-cy="ipRanges" formControlName="ipRanges" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "billingNgMongoApp": {
+    "subscriptionTmp": {
+      "home": {
+        "title": "Subscription Tmps",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Subscription Tmp",
+        "createOrEditLabel": "Create or edit a Subscription Tmp",
+        "notFound": "No Subscription Tmps found"
+      },
+      "created": "A new Subscription Tmp is created with identifier {{ param }}",
+      "updated": "A Subscription Tmp is updated with identifier {{ param }}",
+      "deleted": "A Subscription Tmp is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Subscription Tmp {{ id }}?"
+      },
+      "detail": {
+        "title": "Subscription Tmp"
+      },
+      "id": "ID",
+      "name": "Name",
+      "lastUpdate": "Last Update",
+      "description": "Description",
+      "commercialName": "Commercial Name",
+      "ratePlans": "Rate Plans",
+      "subscriptionFeatures": "Subscription Features",
+      "version": "Version",
+      "usages": "Usages",
+      "freeMonths": "Free Months",
+      "invoiceItemDateds": "Invoice Item Dateds"
+    }
+  }
+}

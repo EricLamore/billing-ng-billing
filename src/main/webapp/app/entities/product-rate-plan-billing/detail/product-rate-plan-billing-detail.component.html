@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productRatePlan">
+      <h2 data-cy="productRatePlanDetailsHeading">
+        <span jhiTranslate="billingNgMongoApp.productRatePlan.detail.title">Product Rate Plan</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ productRatePlan.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.commercialName">Commercial Name</span></dt>
+        <dd>
+          <span>{{ productRatePlan.commercialName }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.base">Base</span></dt>
+        <dd>
+          <span>{{ productRatePlan.base }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.product">Product</span></dt>
+        <dd>
+          <span>{{ productRatePlan.product }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.productRatePlanCharge">Product Rate Plan Charge</span></dt>
+        <dd>
+          <span>{{ productRatePlan.productRatePlanCharge }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.features">Features</span></dt>
+        <dd>
+          <span>{{ productRatePlan.features }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.version">Version</span></dt>
+        <dd>
+          <span>{{ productRatePlan.version }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.fixedPrice">Fixed Price</span></dt>
+        <dd>
+          <span>{{ productRatePlan.fixedPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.standardModel">Standard Model</span></dt>
+        <dd>
+          <span>{{ productRatePlan.standardModel }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.unitsIncluded">Units Included</span></dt>
+        <dd>
+          <span>{{ productRatePlan.unitsIncluded }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.unitsIncludedPrice">Units Included Price</span></dt>
+        <dd>
+          <span>{{ productRatePlan.unitsIncludedPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.productRatePlan.unitsIncludedDuration">Units Included Duration</span></dt>
+        <dd>
+          <span>{{ productRatePlan.unitsIncludedDuration }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product-rate-plan-billing', productRatePlan.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

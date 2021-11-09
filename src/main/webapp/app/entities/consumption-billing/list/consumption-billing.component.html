@@ -1,0 +1,130 @@
+<div>
+  <h2 id="page-heading" data-cy="ConsumptionHeading">
+    <span jhiTranslate="billingNgMongoApp.consumption.home.title">Consumptions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="billingNgMongoApp.consumption.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-consumption-billing"
+        [routerLink]="['/consumption-billing/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="billingNgMongoApp.consumption.home.createLabel"> Create a new Consumption </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="consumptions?.length === 0">
+    <span jhiTranslate="billingNgMongoApp.consumption.home.notFound">No consumptions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="consumptions && consumptions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="organisationId">
+            <span jhiTranslate="billingNgMongoApp.consumption.organisationId">Organisation Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="organizationName">
+            <span jhiTranslate="billingNgMongoApp.consumption.organizationName">Organization Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ratePlanId">
+            <span jhiTranslate="billingNgMongoApp.consumption.ratePlanId">Rate Plan Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <span jhiTranslate="billingNgMongoApp.consumption.name">Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <span jhiTranslate="billingNgMongoApp.consumption.type">Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="month">
+            <span jhiTranslate="billingNgMongoApp.consumption.month">Month</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="year">
+            <span jhiTranslate="billingNgMongoApp.consumption.year">Year</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="details">
+            <span jhiTranslate="billingNgMongoApp.consumption.details">Details</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nbUnits">
+            <span jhiTranslate="billingNgMongoApp.consumption.nbUnits">Nb Units</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let consumption of consumptions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/consumption-billing', consumption.id, 'view']">{{ consumption.id }}</a>
+          </td>
+          <td>{{ consumption.organisationId }}</td>
+          <td>{{ consumption.organizationName }}</td>
+          <td>{{ consumption.ratePlanId }}</td>
+          <td>{{ consumption.name }}</td>
+          <td jhiTranslate="{{ 'billingNgMongoApp.TypeProduct.' + consumption.type }}">{{ consumption.type }}</td>
+          <td>{{ consumption.month }}</td>
+          <td>{{ consumption.year }}</td>
+          <td>{{ consumption.details }}</td>
+          <td>{{ consumption.nbUnits }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/consumption-billing', consumption.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/consumption-billing', consumption.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(consumption)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="consumptions && consumptions.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

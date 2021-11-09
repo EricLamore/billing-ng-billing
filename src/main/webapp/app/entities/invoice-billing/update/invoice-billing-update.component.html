@@ -1,0 +1,376 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-invoice-billing-heading"
+        data-cy="InvoiceCreateUpdateHeading"
+        jhiTranslate="billingNgMongoApp.invoice.home.createOrEditLabel"
+      >
+        Create or edit a Invoice
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.humanId" for="field_humanId">Human Id</label>
+          <input type="text" class="form-control" name="humanId" id="field_humanId" data-cy="humanId" formControlName="humanId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.type" for="field_type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'billingNgMongoApp.InvoiceType.null' | translate }}</option>
+            <option *ngFor="let invoiceType of invoiceTypeValues" [value]="invoiceType">
+              {{ 'billingNgMongoApp.InvoiceType.' + invoiceType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.customerId" for="field_customerId">Customer Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="customerId"
+            id="field_customerId"
+            data-cy="customerId"
+            formControlName="customerId"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.customerName" for="field_customerName"
+            >Customer Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerName"
+            id="field_customerName"
+            data-cy="customerName"
+            formControlName="customerName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.month" for="field_month">Month</label>
+          <input type="number" class="form-control" name="month" id="field_month" data-cy="month" formControlName="month" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.year" for="field_year">Year</label>
+          <input type="number" class="form-control" name="year" id="field_year" data-cy="year" formControlName="year" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.emissionDate" for="field_emissionDate"
+            >Emission Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_emissionDate"
+              data-cy="emissionDate"
+              type="text"
+              class="form-control"
+              name="emissionDate"
+              ngbDatepicker
+              #emissionDateDp="ngbDatepicker"
+              formControlName="emissionDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="emissionDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.items" for="field_items">Items</label>
+          <input type="text" class="form-control" name="items" id="field_items" data-cy="items" formControlName="items" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.vat" for="field_vat">Vat</label>
+          <input type="number" class="form-control" name="vat" id="field_vat" data-cy="vat" formControlName="vat" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.dueDate" for="field_dueDate">Due Date</label>
+          <div class="input-group">
+            <input
+              id="field_dueDate"
+              data-cy="dueDate"
+              type="text"
+              class="form-control"
+              name="dueDate"
+              ngbDatepicker
+              #dueDateDp="ngbDatepicker"
+              formControlName="dueDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dueDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.dateToSend" for="field_dateToSend">Date To Send</label>
+          <div class="input-group">
+            <input
+              id="field_dateToSend"
+              data-cy="dateToSend"
+              type="text"
+              class="form-control"
+              name="dateToSend"
+              ngbDatepicker
+              #dateToSendDp="ngbDatepicker"
+              formControlName="dateToSend"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateToSendDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.sendDate" for="field_sendDate">Send Date</label>
+          <div class="input-group">
+            <input
+              id="field_sendDate"
+              data-cy="sendDate"
+              type="text"
+              class="form-control"
+              name="sendDate"
+              ngbDatepicker
+              #sendDateDp="ngbDatepicker"
+              formControlName="sendDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="sendDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.dunningSendDate" for="field_dunningSendDate"
+            >Dunning Send Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dunningSendDate"
+              data-cy="dunningSendDate"
+              type="text"
+              class="form-control"
+              name="dunningSendDate"
+              ngbDatepicker
+              #dunningSendDateDp="ngbDatepicker"
+              formControlName="dunningSendDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dunningSendDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.creditNoteSendDate" for="field_creditNoteSendDate"
+            >Credit Note Send Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_creditNoteSendDate"
+              data-cy="creditNoteSendDate"
+              type="text"
+              class="form-control"
+              name="creditNoteSendDate"
+              ngbDatepicker
+              #creditNoteSendDateDp="ngbDatepicker"
+              formControlName="creditNoteSendDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="creditNoteSendDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'billingNgMongoApp.Status.null' | translate }}</option>
+            <option *ngFor="let status of statusValues" [value]="status">{{ 'billingNgMongoApp.Status.' + status | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.comments" for="field_comments">Comments</label>
+          <input type="text" class="form-control" name="comments" id="field_comments" data-cy="comments" formControlName="comments" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.pvalidationDate" for="field_pvalidationDate"
+            >Pvalidation Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_pvalidationDate"
+              data-cy="pvalidationDate"
+              type="text"
+              class="form-control"
+              name="pvalidationDate"
+              ngbDatepicker
+              #pvalidationDateDp="ngbDatepicker"
+              formControlName="pvalidationDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="pvalidationDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.validatorId" for="field_validatorId"
+            >Validator Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="validatorId"
+            id="field_validatorId"
+            data-cy="validatorId"
+            formControlName="validatorId"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.payment" for="field_payment">Payment</label>
+          <input type="text" class="form-control" name="payment" id="field_payment" data-cy="payment" formControlName="payment" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.paymentsHistoric" for="field_paymentsHistoric"
+            >Payments Historic</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paymentsHistoric"
+            id="field_paymentsHistoric"
+            data-cy="paymentsHistoric"
+            formControlName="paymentsHistoric"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.paymentMethod" for="field_paymentMethod"
+            >Payment Method</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paymentMethod"
+            id="field_paymentMethod"
+            data-cy="paymentMethod"
+            formControlName="paymentMethod"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.refund" for="field_refund">Refund</label>
+          <input type="text" class="form-control" name="refund" id="field_refund" data-cy="refund" formControlName="refund" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.purchaseOrder" for="field_purchaseOrder"
+            >Purchase Order</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="purchaseOrder"
+            id="field_purchaseOrder"
+            data-cy="purchaseOrder"
+            formControlName="purchaseOrder"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.message" for="field_message">Message</label>
+          <input type="text" class="form-control" name="message" id="field_message" data-cy="message" formControlName="message" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.additionalItems" for="field_additionalItems"
+            >Additional Items</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="additionalItems"
+            id="field_additionalItems"
+            data-cy="additionalItems"
+            formControlName="additionalItems"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.totalPriceGross" for="field_totalPriceGross"
+            >Total Price Gross</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalPriceGross"
+            id="field_totalPriceGross"
+            data-cy="totalPriceGross"
+            formControlName="totalPriceGross"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="billingNgMongoApp.invoice.refundAmount" for="field_refundAmount"
+            >Refund Amount</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="refundAmount"
+            id="field_refundAmount"
+            data-cy="refundAmount"
+            formControlName="refundAmount"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ratePlanCharge">
+      <h2 data-cy="ratePlanChargeDetailsHeading">
+        <span jhiTranslate="billingNgMongoApp.ratePlanCharge.detail.title">Rate Plan Charge</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ratePlanCharge.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlanCharge.step">Step</span></dt>
+        <dd>
+          <span>{{ ratePlanCharge.step }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlanCharge.unitPrice">Unit Price</span></dt>
+        <dd>
+          <span>{{ ratePlanCharge.unitPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="billingNgMongoApp.ratePlanCharge.discount">Discount</span></dt>
+        <dd>
+          <span>{{ ratePlanCharge.discount }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/rate-plan-charge-billing', ratePlanCharge.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

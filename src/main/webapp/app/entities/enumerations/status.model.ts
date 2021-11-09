@@ -1,0 +1,17 @@
+export enum Status {
+  DRAFT = 'DRAFT',
+
+  CREATED = 'CREATED',
+
+  VALIDATED = 'VALIDATED',
+
+  INVALIDATED = 'INVALIDATED',
+
+  SENT = 'SENT',
+
+  PAID = 'PAID',
+
+  UNPAID = 'UNPAID',
+
+  REFUNDED = 'REFUNDED',
+}
