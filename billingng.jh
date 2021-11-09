@@ -1,0 +1,437 @@
+
+
+entity Customer {
+	name String,
+	lastUpdate LocalDate,
+	description String,
+    
+    taxNo String,
+	thirdPartyAccountingCode String,
+	siret String,
+	ownerId String,
+
+	// address Address;
+	// billingAddress Address;
+	isParticular Boolean,
+
+	// private List<PersonReferer> personReferers;
+    personReferers String,
+	// private List<PaymentMethod> meansPayments;
+    meansPayments String,
+	// private List<Subscription> subscriptions;
+    subscriptions String,
+	// private List<Organization> usages;
+    usages String,
+
+	// private SettingsInvoice settingsInvoice;
+    settingsInvoice String,
+	partner Boolean,
+	partnerId String,
+    customerId String,
+    customerName String, 
+}
+
+entity SettingsInvoice {
+	// private SettingsInvoiceUnit global;
+    global String,
+	// private List<SettingsInvoiceUnit> subscription;
+    subscription String,
+    
+	taxPerCent Double,
+	detailSkipped Boolean,
+	manualBillingOnly Boolean,
+	billingActive Boolean,
+	perOrganization Boolean,
+	fullyAutomatic Boolean,
+	period Period,
+    locale String,
+	paymentTerms String,
+}
+
+entity SettingsInvoiceUnit{
+	seller String,
+	personBuyerId String,
+	//private List<String> personRefererCopys;
+    personRefererCopys String,
+	subscriptionId String,
+	useBillingAddress Boolean,
+
+	// private PaymentMethod paymentMethod;
+    paymentMethod String,
+}
+
+enum Period {
+		// monthly invoice.
+		MONTHLY,
+		// quarterly invoice 
+		QUARTERLY,
+		// annual invoice
+		ANNUAL
+}
+
+entity PersonReferer {
+	id String,
+	firstname String,
+	lastname String,
+	email String,
+	job String,
+	phoneNumber String,
+	mobile String,
+	fax String,
+	description String
+}
+
+entity PaymentMethod {
+	typeOfMean String,
+	accountId String,
+	iban String,
+}
+
+entity Address {
+	recipient String,
+	postOfficeBox String,
+	complement String,
+	street String,
+	postcode String,
+	city String,
+	country String,
+}
+
+
+entity InvoiceItem {
+    name String,
+    itemType ItemType,
+    minStep Integer,
+    maxStep Integer,
+    quantity Double,
+    unitPrice Double,
+    discount Double,
+    price Double,
+    
+    //Product product;
+    product String,
+    globalQuantity Integer,
+    untilDate LocalDate,
+}
+
+enum ItemType {
+        // Denotes a subscription.
+        SUBSCRIPTION,
+        // Denotes a step of billing
+        STEP,
+        // Denotes free units.
+        FREE_UNITS,
+        // Custom as a pack
+        CUSTOM
+}
+
+entity Organization {
+	id String,
+	addr String,
+	city String,
+	country String,
+	name String,
+	registerDate LocalDate,
+	status Integer,
+	zipCode String,
+	individual Boolean,
+	vatNumber String,
+	ipRanges String,
+}
+
+entity RatePlan {
+	name String,
+	lastUpdate LocalDate,
+	description String,
+    
+	commercialName String,
+	base Double,
+    
+	// private Product product
+    product String,
+    
+	// private List<ProductRatePlanCharge> productRatePlanCharge
+    productRatePlanCharge String,
+    
+	// private List<Feature> features
+    features String,
+    
+	version String,
+	fixedPrice Boolean,
+	standardModel Boolean,
+
+	unitsIncluded Integer,
+	unitsIncludedPrice Double,
+	unitsIncludedDuration Integer,
+
+	ratePlanId String,
+
+	discountUnitPrice Double,
+	discountBase Double,
+
+	prorata Double,
+
+	activationDate LocalDate,
+	endDate LocalDate,
+
+	// private List<RatePlanCharge> ratePlanCharges
+    ratePlanCharges String,
+    
+	// private List<SubscriptionFeature> subscriptionFeatures
+    subscriptionFeatures String
+}
+
+
+
+entity ProductRatePlan {
+	commercialName String,
+	base Double,
+    
+	// private Product product;
+    product String,
+    
+	// private List<ProductRatePlanCharge> productRatePlanCharge;
+    productRatePlanCharge String,
+    
+	// private List<Feature> features;
+    features String,
+    
+	version String,
+	fixedPrice Boolean,
+	standardModel Boolean,
+
+	unitsIncluded Integer,
+	unitsIncludedPrice Double,
+	unitsIncludedDuration Integer,
+}
+
+entity RatePlanCharge {
+	step Integer,
+    unitPrice Double,
+    discount Double,
+}
+
+entity ProductRatePlanCharge {
+	step Integer,
+    unitPrice Double,
+}
+
+entity Feature {
+	name String,
+	lastUpdate LocalDate,
+	description String,
+    isVisible Boolean,
+}
+
+entity SubscriptionFeature {
+	name String,
+	lastUpdate LocalDate,
+	description String,
+    isVisible Boolean,
+}
+
+entity Product {
+	name String,
+	lastUpdate LocalDate,
+	description String,
+    
+    certificateTypes String,
+    commercialName String,
+	productType TypeProduct,
+	// private List<ProductSetting> settings;
+    settings String,
+    
+	matrix Double,
+}
+
+enum TypeProduct {
+    // The SIGNATURE product.
+    SIGNATURE(simple),
+    // The SERVER-STAMP product.
+    SERVER_STAMP(server),
+    // The TIMESTAMP product.
+    TIMESTAMPING(timestamp),
+    // The transaction product.
+    TRANSACTIONS(transactions),
+    // The generic product.
+    GENERIC(generic),
+    // Certificat de personne morale
+    CPM,
+    // Prestations de services.
+    PRESTA,
+    // Personnalisation site enrôlement OED.
+    OED_SETUP,
+    //  Traitement de l'enregistrement des OED
+    OED_RUN,
+    //  Prestations forfaitaires
+    FORFAIT
+}
+
+entity ProductSetting {
+	name String,
+    value String,
+}
+
+
+entity Refund {
+	reference String,
+    amount Integer,
+}
+
+entity Consumption {
+    organisationId String,
+    organizationName String,
+    ratePlanId String,
+    name String,
+    type TypeProduct,
+    month Integer,
+    year Integer,
+    // private List<String[]> details;
+    details String,
+
+    nbUnits Integer,
+}
+
+enum Status {
+		// The initial status for a draft one_shot {@code Invoice}. */
+		DRAFT,
+		// The initial status for a newly recurring created {@code Invoice}. */
+		CREATED,
+		 // The {@code Invoice} has been validated by an authorized
+		 // {@code User}.
+		VALIDATED,
+		 // The {@code Invoice} has been invalidated by an authorized
+		 // {@code User}. This is a final {@code Status}.
+		INVALIDATED,
+		 // The {@code Invoice} has been sent
+		 // {@code User} and sent to the {@code Customer}.
+		SENT,
+		 //The {@code Invoice} has been notified as "paid" by the
+		 // customer. It is a final status.
+		PAID,
+		 // The {@code Invoice} has been unpaid by the {@code Customer}.
+		 // This is a final {@code Status}.
+		UNPAID,
+		 // The {@code Invoice} has been refunded by the universign
+		 // This is a final {@code Status}.
+		REFUNDED
+}
+enum InvoiceType {
+		// Denotes an invoice.
+		INVOICE,
+		//  Denotes an invoice not reccuring but one shot. 
+		INVOICE_ONE_SHOT,
+		//  Denotes a refund 
+		REFUND
+}
+
+entity Invoice {
+	humanId String,
+	type InvoiceType,
+	customerId String,
+	customerName String,
+	month Integer,
+	year Integer,
+	emissionDate LocalDate,
+    
+	// private List<InvoiceItem> items;
+    items String,
+    
+	vat Double,
+	dueDate LocalDate,
+	dateToSend LocalDate,
+	sendDate LocalDate,
+	dunningSendDate LocalDate,
+	creditNoteSendDate LocalDate,
+
+	status Status,
+	comments String,
+	pvalidationDate LocalDate,
+	validatorId String,
+
+	// private Payment payment;
+    payment String,
+    
+	// private List<Payment> paymentsHistoric;
+    paymentsHistoric String,
+
+	//private PaymentMethod paymentMethod;
+    paymentMethod String,
+
+	// private Refund refund;
+	refund String,
+    
+	purchaseOrder String,
+	message String,
+
+	// private List<InvoiceItem> additionalItems = new ArrayList<>();
+    additionalItems String,
+
+	totalPriceGross Double,
+
+	refundAmount Integer,
+} 
+
+entity InvoiceItem {
+    name String,
+    itemType ItemType,
+    minStep Integer,
+    maxStep Integer,
+    quantity Double,
+    unitPrice Double,
+    discount Double,
+    price Double,
+    // private Product product;
+    product String,
+    globalQuantity Integer,
+    untilDate LocalDate,
+}
+
+enum ItemType {
+        // Denotes a subscription.
+        SUBSCRIPTION,
+        // Denotes a step of billing
+        STEP,
+        // Denotes free units.
+        FREE_UNITS,
+        // Custom as a pack
+        CUSTOM
+}
+
+entity PersonReferer
+{
+	firstname String,
+	lastname String,
+	email String,
+	job String,
+	phoneNumber String,
+	mobile String,
+	fax String,
+	description String,
+}
+
+entity SubscriptionTmp {
+	name String,
+	lastUpdate LocalDate,
+	description String,
+    
+	commercialName String,
+    ratePlans String,
+    subscriptionFeatures String,
+	version String,
+    usages String,
+	freeMonths Integer,
+    invoiceItemDateds String,
+}
+
+// Set pagination options
+paginate all with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass
+
+// Set an angular suffix
+angularSuffix * with billing
